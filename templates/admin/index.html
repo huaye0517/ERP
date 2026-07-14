@@ -1,0 +1,156 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}{{ block.super }} dashboard{% endblock %}
+
+{% block content_title %}{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">首页</a>
+{% if title %} &rsaquo; {{ title }}{% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="content-main">
+
+{% if not app_label %}
+    <div class="dashboard-hero">
+        <h1>ERP 指挥中枢</h1>
+        <p>企业运营实时概览</p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-value">{{ maxi_app_list|length }}</div>
+                <div class="hero-stat-label">业务模块</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-value">{% if todolist %}{{ todolist|length }}{% else %}0{% endif %}</div>
+                <div class="hero-stat-label">待办任务</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-value">{% now "H:i" %}</div>
+                <div class="hero-stat-label">系统时间</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-value">正常</div>
+                <div class="hero-stat-label">系统状态</div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% if maxi_app_list %}
+    <div class="app-grid">
+    {% for app in maxi_app_list %}
+        <div class="app-card app-{{ app.app_label }}">
+            <div class="app-card-header">
+                <div class="app-card-title">
+                    <span class="app-icon app-icon-{{ app.app_label }}" aria-hidden="true">
+                        {% if app.app_label == 'selfhelp' %}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>
+                        {% elif app.app_label == 'sale' %}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.8h8.8a2 2 0 0 0 2-1.6L22 7H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+                        {% elif app.app_label == 'purchase' %}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16v12H4z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/><path d="M9 12h6"/></svg>
+                        {% elif app.app_label == 'invent' %}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9Z"/><path d="M12 12 3 7.5M12 12l9-4.5M12 12v9"/></svg>
+                        {% elif app.app_label == 'organ' %}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="2" width="6" height="5" rx="1"/><rect x="2" y="17" width="6" height="5" rx="1"/><rect x="16" y="17" width="6" height="5" rx="1"/><path d="M12 7v4M5 17v-4h14v4"/></svg>
+                        {% elif app.app_label == 'basedata' %}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+                        {% elif app.app_label == 'syscfg' %}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.3.6.9 1 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg>
+                        {% elif app.app_label == 'workflow' %}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="12" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M8.5 7.5 15.5 11M8.5 16.5 15.5 13"/></svg>
+                        {% elif app.app_label == 'hr' %}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 11a4 4 0 1 0-8 0"/><path d="M4 20a8 8 0 0 1 16 0"/><path d="M19 8v4M17 10h4"/></svg>
+                        {% elif app.app_label == 'auth' %}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="16" r="1.5"/></svg>
+                        {% elif app.app_label == 'contenttypes' %}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="M8 10h8M8 14h5"/></svg>
+                        {% else %}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
+                        {% endif %}
+                    </span>
+                    <a href="{{ app.app_url }}" class="section" title="{{ app.name }} 模块">{{ app.name }}</a>
+                </div>
+            </div>
+            <div class="app-card-models">
+            {% for model in app.models %}
+                <div class="app-card-model model-{{ model.object_name|lower }}">
+                    <div class="app-card-model-name">
+                    {% if model.admin_url %}
+                        <a href="{{ model.admin_url }}">{{ model.name }}</a>
+                    {% else %}
+                        {{ model.name }}
+                    {% endif %}
+                    </div>
+                    <div class="app-card-actions">
+                    {% if model.add_url %}
+                        <a href="{{ model.add_url }}" class="addlink">新增</a>
+                    {% endif %}
+                    {% if model.admin_url %}
+                        <a href="{{ model.admin_url }}" class="changelink">修改</a>
+                    {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% else %}
+    <p>您没有权限编辑任何内容。</p>
+{% endif %}
+</div>
+{% endblock %}
+
+{% block sidebar %}
+<div id="content-related">
+    <div class="module">
+        <h2><a href="workflow/todolist" style="float:right">更多</a>我的待办</h2>
+        {% if not todolist %}
+            <p>无待办任务</p>
+        {% else %}
+            <ul class="actionlist">
+                {% for todo in todolist%}
+                <li class="changelink">
+                    {{todo.href}}<br/>
+                    <span class="mini quiet">{{todo.submitter}} {{todo.start_time}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div class="module" id="recent-actions-module">
+        <h2>最近操作</h2>
+        <h3>我的操作</h3>
+            {% load log %}
+            {% get_admin_log 10 as admin_log for_user user %}
+            {% if not admin_log %}
+            <p>暂无记录</p>
+            {% else %}
+            <ul class="actionlist">
+            {% for entry in admin_log %}
+            <li class="{% if entry.is_addition %}addlink{% endif %}{% if entry.is_change %}changelink{% endif %}{% if entry.is_deletion %}deletelink{% endif %}">
+                {% if entry.is_deletion or not entry.get_admin_url %}
+                    {{ entry.object_repr }}
+                {% else %}
+                    <a href="{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
+                {% endif %}
+                <br/>
+                {% if entry.content_type %}
+                    <span class="mini quiet">{% filter capfirst %}{{ entry.content_type }}{% endfilter %}</span>
+                {% else %}
+                    <span class="mini quiet">未知内容</span>
+                {% endif %}
+            </li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+    </div>
+</div>
+{% endblock %}

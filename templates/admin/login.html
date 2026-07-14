@@ -1,0 +1,85 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}{{ block.super }}
+<style>
+body.admin-tech-theme {
+    background: #0b1120;
+}
+#header, .breadcrumbs, #footer, #container > .messagelist {
+    display: none !important;
+}
+#content {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+}
+</style>
+{% endblock %}
+
+{% block bodyclass %}{{ block.super }} login-page{% endblock %}
+
+{% block usertools %}{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block content_title %}{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+<div class="login-page">
+    <canvas id="particle-canvas" class="particle-canvas" aria-hidden="true"></canvas>
+    <div class="login-grid"></div>
+    <div class="login-card">
+        <div class="login-brand">
+            <div class="logo">◆</div>
+            <h1>Django-ERP</h1>
+            <p>企业资源计划管理系统</p>
+        </div>
+
+        {% if form.errors and not form.non_field_errors %}
+        <p class="errornote">
+        {% if form.errors.items|length == 1 %}请更正下面的错误。{% else %}请更正下面的错误。{% endif %}
+        </p>
+        {% endif %}
+
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <p class="errornote">{{ error }}</p>
+        {% endfor %}
+        {% endif %}
+
+        <div id="content-main" class="login-form">
+            <form action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
+                <div class="form-row">
+                    {{ form.username.errors }}
+                    <label for="id_username" class="required">用户名：</label>
+                    <input type="text" name="username" id="id_username" autofocus required>
+                </div>
+                <div class="form-row">
+                    {{ form.password.errors }}
+                    <label for="id_password" class="required">密码：</label>
+                    <input type="password" name="password" id="id_password" required>
+                    <input type="hidden" name="next" value="{{ next }}">
+                </div>
+                {% url 'admin_password_reset' as password_reset_url %}
+                {% if password_reset_url %}
+                <div class="password-reset-link">
+                    <a href="{{ password_reset_url }}">忘记密码或用户名？</a>
+                </div>
+                {% endif %}
+                <div class="submit-row">
+                    <input type="submit" value="登录系统">
+                </div>
+            </form>
+        </div>
+
+        <div class="login-help">
+            安全访问，未经授权禁止使用
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/login-particles.js' %}"></script>
+{% endblock %}
