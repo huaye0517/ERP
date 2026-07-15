@@ -1,0 +1,557 @@
+{
+  "query": {
+    "label": "近7天下单",
+    "biz": {
+      "startTradeTime": "2026-07-07 18:10:16",
+      "endTradeTime": "2026-07-14 18:10:16",
+      "pageSize": 10,
+      "scrollId": "",
+      "hasTotal": 0
+    },
+    "code": 200
+  },
+  "count": 10,
+  "trades": [
+    {
+      "shopCode": "0353",
+      "tradeStatusExplain": "发货在途",
+      "gmtModified": "2026-07-09 01:13:00",
+      "address": "~*************~/pdd/~1~~",
+      "tradeNo": "JY202607077679",
+      "onlineTradeNo": "260707-036978112833870",
+      "isDelete": 0,
+      "receiverName": "~李**~/pdd/~1~~",
+      "tradeOrderAssemblyGoodsDtoList": [],
+      "mobile": "~***********~/pdd/~1~~",
+      "shopName": "拼多多闭眼买就对了",
+      "gmtCreate": "2026-07-07 18:12:06",
+      "customerName": "~李**~/pdd/~1~~",
+      "tradeTime": "2026-07-07 18:11:33",
+      "totalFee": 18.3,
+      "tradeOrderPayList": [
+        {
+          "payTypeExplain": "",
+          "payment": 16.47,
+          "barcodePayNo": "JY202607077679",
+          "tradeId": "2518420562673600257"
+        }
+      ],
+      "tradeStatus": 6000,
+      "payment": 16.47,
+      "id": 5641158,
+      "shopTypeCode": "PDD",
+      "apiType": 47,
+      "goodsDetail": [
+        {
+          "goodsNo": "ZJ4416",
+          "specId": "2287085307398489600",
+          "shareOrderPlatDiscountFee": 0,
+          "sellTotal": 18.3,
+          "sellPrice": 18.3,
+          "shareOrderDiscountFee": 0,
+          "sourceTradeNo": "260707-036978112833870",
+          "subTradeId": "2518420562928338304",
+          "goodsAlias": "绽家四季繁花香氛洗衣液480ml袋装（白兰花与栀子花）",
+          "goodsPlatDiscountFee": 0,
+          "sellCount": 1,
+          "isFit": 0,
+          "taxFee": 0,
+          "goodsName": "绽家四季繁花酵素香氛洗衣液480ml（白兰花与栀子花）-袋装",
+          "tradeId": "2518420562673600257"
+        }
+      ],
+      "tradeId": "2518420562673600257"
+    },
+    {
+      "shopCode": "0288",
+      "tradeStatusExplain": "发货在途",
+      "gmtModified": "2026-07-09 01:13:13",
+      "address": "~************~/pdd/~1~~",
+      "tradeNo": "JY202607077678",
+      "onlineTradeNo": "260707-311327465032059",
+      "isDelete": 0,
+      "receiverName": "~吴**~/pdd/~1~~",
+      "tradeOrderAssemblyGoodsDtoList": [],
+      "mobile": "~***********~/pdd/~1~~",
+      "shopName": "拼多多青蛙家居生活官方旗舰店",
+      "gmtCreate": "2026-07-07 18:11:53",
+      "customerName": "~吴**~/pdd/~1~~",
+      "tradeTime": "2026-07-07 18:11:19",
+      "totalFee": 16.8,
+      "tradeOrderPayList": [
+        {
+          "payTypeExplain": "",
+          "payment": 16.8,
+          "barcodePayNo": "JY202607077678",
+          "tradeId": "2518420458691495168"
+        }
+      ],
+      "tradeStatus": 6000,
+      "payment": 16.8,
+      "id": 5641157,
+      "shopTypeCode": "PDD",
+      "apiType": 47,
+      "goodsDetail": [
+        {
+          "goodsNo": "QT339-5支装",
+          "specId": "2373499868277638400",
+          "shareOrderPlatDiscountFee": 0,
+          "sellTotal": 16.8,
+          "sellPrice": 8.4,
+          "shareOrderDiscountFee": 0,
+          "sourceTradeNo": "260707-311327465032059",
+          "subTradeId": "2518420477427254528",
+          "goodsPlatDiscountFee": 0,
+          "sellCount": 2,
+          "isFit": 0,
+          "taxFee": 0,
+          "goodsName": "青蛙套装系列339-D1牙刷-5支装",
+          "tradeId": "2518420458691495168"
+        }
+      ],
+      "tradeId": "2518420458691495168"
+    },
+    {
+      "shopCode": "0289",
+      "tradeStatusExplain": "已完成",
+      "gmtModified": "2026-07-12 02:50:01",
+      "address": "~*************~/pdd/~1~~",
+      "tradeNo": "JY202607077677",
+      "onlineTradeNo": "260707-285071163740904",
+      "isDelete": 0,
+      "receiverName": "~唐*~/pdd/~1~~",
+      "tradeOrderAssemblyGoodsDtoList": [],
+      "mobile": "~***********~/pdd/~1~~",
+      "shopName": "拼多多青蛙洗护专卖店",
+      "gmtCreate": "2026-07-07 18:11:44",
+      "customerName": "~唐*~/pdd/~1~~",
+      "tradeTime": "2026-07-07 18:11:13",
+      "totalFee": 10.29,
+      "tradeOrderPayList": [
+        {
+          "payTypeExplain": "",
+          "payment": 9.69,
+          "barcodePayNo": "JY202607077677",
+          "tradeId": "2518420377697026818"
+        }
+      ],
+      "tradeStatus": 9090,
+      "payment": 9.69,
+      "id": 5641156,
+      "shopTypeCode": "PDD",
+      "apiType": 47,
+      "goodsDetail": [
+        {
+          "goodsNo": "QB383A",
+          "specId": "2373499868495742208",
+          "shareOrderPlatDiscountFee": 0,
+          "sellTotal": 10.29,
+          "sellPrice": 3.43,
+          "shareOrderDiscountFee": 0,
+          "sourceTradeNo": "260707-285071163740904",
+          "subTradeId": "2518420402515411840",
+          "goodsPlatDiscountFee": 0,
+          "sellCount": 3,
+          "isFit": 0,
+          "taxFee": 0,
+          "goodsName": "青蛙儿童系列383A-D1儿童牙刷-单支装",
+          "tradeId": "2518420377697026818"
+        }
+      ],
+      "tradeId": "2518420377697026818"
+    },
+    {
+      "shopCode": "0322",
+      "tradeStatusExplain": "发货在途",
+      "gmtModified": "2026-07-09 01:13:13",
+      "tradeNo": "JY202607077670",
+      "onlineTradeNo": "3311162114177144297",
+      "isDelete": 0,
+      "shopName": "青蛙天猫旗舰店",
+      "gmtCreate": "2026-07-07 18:11:05",
+      "totalFee": 33.9,
+      "tradeOrderPayList": [
+        {
+          "payTypeExplain": "",
+          "payment": 30.9,
+          "barcodePayNo": "JY202607077670",
+          "tradeId": "2518420057870598784"
+        }
+      ],
+      "hint": "淘系订单隐藏敏感数据，请查看：https://s.jkyun.biz/0Wuqdit",
+      "tradeStatus": 6000,
+      "payment": 30.9,
+      "id": 5641149,
+      "shopTypeCode": "TMALL",
+      "apiType": 1,
+      "tradeId": "2518420057870598784"
+    },
+    {
+      "shopCode": "0310",
+      "tradeStatusExplain": "发货在途",
+      "gmtModified": "2026-07-09 01:13:00",
+      "address": "~****************~/pdd/~1~~",
+      "tradeNo": "JY202607077674",
+      "onlineTradeNo": "260707-672478062900209",
+      "isDelete": 0,
+      "receiverName": "~官**~/pdd/~1~~",
+      "tradeOrderAssemblyGoodsDtoList": [],
+      "mobile": "~***********~/pdd/~1~~",
+      "shopName": "拼多多绽家家居旗舰店",
+      "gmtCreate": "2026-07-07 18:11:33",
+      "customerName": "~官**~/pdd/~1~~",
+      "tradeTime": "2026-07-07 18:11:03",
+      "totalFee": 29.9,
+      "tradeOrderPayList": [
+        {
+          "payTypeExplain": "",
+          "payment": 26.9,
+          "barcodePayNo": "JY202607077674",
+          "tradeId": "2518420288004162560"
+        }
+      ],
+      "tradeStatus": 6000,
+      "payment": 26.9,
+      "id": 5641153,
+      "shopTypeCode": "PDD",
+      "apiType": 47,
+      "goodsDetail": [
+        {
+          "goodsNo": "ZJ4408",
+          "specId": "2281344805510611456",
+          "shareOrderPlatDiscountFee": 0,
+          "sellTotal": 29.9,
+          "sellPrice": 29.9,
+          "shareOrderDiscountFee": 0,
+          "sourceTradeNo": "260707-672478062900209",
+          "subTradeId": "2518420308663665537",
+          "goodsAlias": "绽家×奥黛丽赫本内衣洗衣液200ml瓶装（经典小黑裙-香草茉莉与晚香玉）",
+          "goodsPlatDiscountFee": 0,
+          "sellCount": 1,
+          "isFit": 0,
+          "taxFee": 0,
+          "goodsName": "绽家×奥黛丽赫本内衣洗衣液200ml-经典小黑裙(香草茉莉与晚香玉）",
+          "tradeId": "2518420288004162560"
+        },
+        {
+          "goodsNo": "ZJ4566",
+          "specId": "2462554443829609728",
+          "shareOrderPlatDiscountFee": 0,
+          "sellTotal": 0,
+          "sellPrice": 0,
+          "shareOrderDiscountFee": 0,
+          "sourceTradeNo": "260707-672478062900209",
+          "subTradeId": "2518420308663665536",
+          "goodsAlias": "绽家四季繁花香氛洗衣液60ml袋装（木调沉香玫瑰）-专供款",
+          "goodsPlatDiscountFee": 0,
+          "sellCount": 1,
+          "isFit": 0,
+          "taxFee": 0,
+          "goodsName": "绽家四季繁花酵素香氛洗衣液（木调沉香玫瑰）60ml",
+          "tradeId": "2518420288004162560"
+        }
+      ],
+      "tradeId": "2518420288004162560"
+    },
+    {
+      "shopCode": "0349",
+      "tradeStatusExplain": "发货在途",
+      "gmtModified": "2026-07-09 01:12:57",
+      "address": "~*****************~/pdd/~1~~",
+      "tradeNo": "JY202607077673",
+      "onlineTradeNo": "260707-191055860142434",
+      "isDelete": 0,
+      "receiverName": "~郑*~/pdd/~1~~",
+      "tradeOrderAssemblyGoodsDtoList": [],
+      "mobile": "~***********~/pdd/~1~~",
+      "shopName": "拼多多好物小铺优品",
+      "gmtCreate": "2026-07-07 18:11:33",
+      "customerName": "~郑*~/pdd/~1~~",
+      "tradeTime": "2026-07-07 18:10:57",
+      "totalFee": 23,
+      "tradeOrderPayList": [
+        {
+          "payTypeExplain": "",
+          "payment": 23,
+          "barcodePayNo": "JY202607077673",
+          "tradeId": "2518420287123358720"
+        }
+      ],
+      "tradeStatus": 6000,
+      "payment": 23,
+      "id": 5641152,
+      "shopTypeCode": "PDD",
+      "apiType": 47,
+      "goodsDetail": [
+        {
+          "goodsNo": "ZJ4590",
+          "specId": "2485059771019592832",
+          "shareOrderPlatDiscountFee": 0,
+          "sellTotal": 23,
+          "sellPrice": 23,
+          "shareOrderDiscountFee": 0,
+          "sourceTradeNo": "260707-191055860142434",
+          "subTradeId": "2518420287370954112",
+          "goodsAlias": "绽家四季繁花香氛洗衣液600ml方瓶（杏仁奶檀）-大瓶版",
+          "goodsPlatDiscountFee": 0,
+          "sellCount": 1,
+          "isFit": 0,
+          "taxFee": 0,
+          "goodsName": "绽家四季繁花酵素香氛洗衣液600ml杏仁奶檀) -大瓶",
+          "tradeId": "2518420287123358720"
+        }
+      ],
+      "tradeId": "2518420287123358720"
+    },
+    {
+      "shopCode": "PDD01",
+      "tradeStatusExplain": "已取消",
+      "gmtModified": "2026-07-07 18:12:40",
+      "address": "~***********~/pdd/~1~~",
+      "tradeNo": "JY202607077671",
+      "onlineTradeNo": "260707-287692634440303",
+      "isDelete": 0,
+      "receiverName": "~陈**~/pdd/~1~~",
+      "tradeOrderAssemblyGoodsDtoList": [],
+      "mobile": "~***********~/pdd/~1~~",
+      "shopName": "拼多多绽家旗舰店",
+      "gmtCreate": "2026-07-07 18:11:14",
+      "customerName": "~陈**~/pdd/~1~~",
+      "tradeTime": "2026-07-07 18:10:46",
+      "totalFee": 39.9,
+      "tradeOrderPayList": [
+        {
+          "payTypeExplain": "",
+          "payment": 39.9,
+          "barcodePayNo": "JY202607077671",
+          "tradeId": "2518420131699229696"
+        }
+      ],
+      "tradeStatus": 5010,
+      "payment": 39.9,
+      "id": 5641150,
+      "shopTypeCode": "PDD",
+      "apiType": 47,
+      "goodsDetail": [
+        {
+          "goodsNo": "ZJ4590",
+          "specId": "2485059771019592832",
+          "shareOrderPlatDiscountFee": 0,
+          "sellTotal": 39.9,
+          "sellPrice": 39.9,
+          "shareOrderDiscountFee": 0,
+          "sourceTradeNo": "260707-287692634440303",
+          "subTradeId": "2518420153965183746",
+          "goodsAlias": "绽家四季繁花香氛洗衣液600ml方瓶（杏仁奶檀）-大瓶版",
+          "goodsPlatDiscountFee": 0,
+          "sellCount": 1,
+          "isFit": 0,
+          "taxFee": 0,
+          "goodsName": "绽家四季繁花酵素香氛洗衣液600ml杏仁奶檀) -大瓶",
+          "tradeId": "2518420131699229696"
+        },
+        {
+          "goodsNo": "Ybmy1537",
+          "specId": "2202286340003791872",
+          "shareOrderPlatDiscountFee": 0,
+          "sellTotal": 0,
+          "sellPrice": 0,
+          "shareOrderDiscountFee": 0,
+          "sourceTradeNo": "260707-287692634440303",
+          "subTradeId": "2518420153965183744",
+          "goodsAlias": "绽家四季繁花香氛洗衣液30ml袋装（迈索尔檀木与小花茉莉）",
+          "goodsPlatDiscountFee": 0,
+          "sellCount": 1,
+          "isFit": 0,
+          "taxFee": 0,
+          "goodsName": "Lycocelle绽家四季繁花酵素香氛洗衣液（迈索尔檀木与小花茉莉）30ml",
+          "tradeId": "2518420131699229696"
+        },
+        {
+          "goodsNo": "ZJ4432",
+          "specId": "2324666843299612288",
+          "shareOrderPlatDiscountFee": 0,
+          "sellTotal": 0,
+          "sellPrice": 0,
+          "shareOrderDiscountFee": 0,
+          "sourceTradeNo": "260707-287692634440303",
+          "subTradeId": "2518420153965183745",
+          "goodsAlias": "绽家四季繁花香氛衣物柔顺剂30ml袋装（迈索尔檀木与小花茉莉）",
+          "goodsPlatDiscountFee": 0,
+          "sellCount": 1,
+          "isFit": 0,
+          "taxFee": 0,
+          "goodsName": "绽家四季繁花香氛衣物柔顺剂30ml（迈索尔檀木与小花茉莉）- 袋装",
+          "tradeId": "2518420131699229696"
+        }
+      ],
+      "tradeId": "2518420131699229696"
+    },
+    {
+      "shopCode": "PDD04",
+      "tradeStatusExplain": "已完成",
+      "gmtModified": "2026-07-10 23:20:08",
+      "address": "~北京市朝阳区********************************~/pdd/~1~~",
+      "tradeNo": "JY202607077672",
+      "onlineTradeNo": "260707-437366310480921",
+      "isDelete": 0,
+      "receiverName": "~郝**~/pdd/~1~~",
+      "tradeOrderAssemblyGoodsDtoList": [],
+      "mobile": "~***********~/pdd/~1~~",
+      "shopName": "拼多多绽家星通专卖店",
+      "gmtCreate": "2026-07-07 18:11:23",
+      "customerName": "~郝**~/pdd/~1~~",
+      "tradeTime": "2026-07-07 18:10:41",
+      "totalFee": 64.89,
+      "tradeOrderPayList": [
+        {
+          "payTypeExplain": "",
+          "payment": 57.69,
+          "barcodePayNo": "JY202607077672",
+          "tradeId": "2518420203112695552"
+        }
+      ],
+      "tradeStatus": 9090,
+      "payment": 57.69,
+      "id": 5641151,
+      "shopTypeCode": "PDD",
+      "apiType": 47,
+      "goodsDetail": [
+        {
+          "goodsNo": "Ybmy1575",
+          "specId": "2253654211554673408",
+          "shareOrderPlatDiscountFee": 0,
+          "sellTotal": 64.89,
+          "sellPrice": 64.89,
+          "shareOrderDiscountFee": 0,
+          "sourceTradeNo": "260707-437366310480921",
+          "subTradeId": "2518420203384210816",
+          "goodsAlias": "绽家四季繁花香氛洗衣液1000ml方瓶（白兰花与栀子花）",
+          "goodsPlatDiscountFee": 0,
+          "sellCount": 1,
+          "isFit": 0,
+          "taxFee": 0,
+          "goodsName": "绽家四季繁花香氛洗衣液1000ml（白兰花与栀子花）-方瓶",
+          "tradeId": "2518420203112695552"
+        }
+      ],
+      "tradeId": "2518420203112695552"
+    },
+    {
+      "shopCode": "0403",
+      "tradeStatusExplain": "已完成",
+      "gmtModified": "2026-07-11 00:51:11",
+      "address": "~**************~/ocip/~1~~",
+      "tradeNo": "JY202607077669",
+      "onlineTradeNo": "6954278694747182559",
+      "isDelete": 0,
+      "receiverName": "~宋*~/ocip/~1~~",
+      "tradeOrderAssemblyGoodsDtoList": [],
+      "mobile": "~1**********~/ocip/~1~~",
+      "shopName": "抖音-绽家家居旗舰店",
+      "gmtCreate": "2026-07-07 18:10:58",
+      "customerName": "~宋*~/ocip/~1~~",
+      "tradeTime": "2026-07-07 18:10:37",
+      "totalFee": 69.9,
+      "tradeOrderPayList": [
+        {
+          "payTypeExplain": "",
+          "payment": 69.9,
+          "barcodePayNo": "JY202607077669",
+          "tradeId": "2518419993603900544"
+        }
+      ],
+      "tradeStatus": 9090,
+      "payment": 69.9,
+      "id": 5641148,
+      "shopTypeCode": "FXG",
+      "apiType": 114,
+      "goodsDetail": [
+        {
+          "goodsNo": "ZJ4488",
+          "specId": "2390648465219420416",
+          "shareOrderPlatDiscountFee": 0,
+          "sellTotal": 34.95,
+          "sellPrice": 34.95,
+          "shareOrderDiscountFee": 0,
+          "sourceTradeNo": "6954278694747182559",
+          "subTradeId": "2518420012505433344",
+          "goodsAlias": "绽家内衣洗衣液240ml瓶装（檀香山苹果）-kt联名版",
+          "goodsPlatDiscountFee": 0,
+          "sellCount": 1,
+          "isFit": 0,
+          "taxFee": 0,
+          "goodsName": "绽家内衣洗（檀香山苹果）240mL-联名版",
+          "tradeId": "2518419993603900544"
+        },
+        {
+          "goodsNo": "ZJ4489",
+          "specId": "2390648465294917888",
+          "shareOrderPlatDiscountFee": 0,
+          "sellTotal": 34.95,
+          "sellPrice": 34.95,
+          "shareOrderDiscountFee": 0,
+          "sourceTradeNo": "6954278694747182559",
+          "subTradeId": "2518420012505433345",
+          "goodsAlias": "绽家内衣洗衣液240ml瓶装（加州樱桃与山茶花）-kt联名版",
+          "goodsPlatDiscountFee": 0,
+          "sellCount": 1,
+          "isFit": 0,
+          "taxFee": 0,
+          "goodsName": "绽家内衣洗（加州樱桃与山茶花）240mL-联名版",
+          "tradeId": "2518419993603900544"
+        }
+      ],
+      "tradeId": "2518419993603900544"
+    },
+    {
+      "shopCode": "0323",
+      "tradeStatusExplain": "发货在途",
+      "gmtModified": "2026-07-09 01:13:06",
+      "address": "~**********~/ocip/~1~~",
+      "tradeNo": "JY202607077667",
+      "onlineTradeNo": "6954285223027086878",
+      "isDelete": 0,
+      "receiverName": "~谢*~/ocip/~1~~",
+      "tradeOrderAssemblyGoodsDtoList": [],
+      "mobile": "~1**********~/ocip/~1~~",
+      "shopName": "青蛙抖音旗舰店",
+      "gmtCreate": "2026-07-07 18:10:36",
+      "customerName": "~谢*~/ocip/~1~~",
+      "tradeTime": "2026-07-07 18:10:22",
+      "totalFee": 35.9,
+      "tradeOrderPayList": [
+        {
+          "payTypeExplain": "",
+          "payment": 15.9,
+          "barcodePayNo": "JY202607077667",
+          "tradeId": "2518419807831852032"
+        }
+      ],
+      "tradeStatus": 6000,
+      "payment": 15.9,
+      "id": 5641146,
+      "shopTypeCode": "FXG",
+      "apiType": 114,
+      "goodsDetail": [
+        {
+          "goodsNo": "QJ199B-C7-4支装",
+          "specId": "2484239623289504384",
+          "shareOrderPlatDiscountFee": 0,
+          "sellTotal": 35.9,
+          "sellPrice": 35.9,
+          "shareOrderDiscountFee": 0,
+          "sourceTradeNo": "6954285223027086878",
+          "subTradeId": "2518419828903970048",
+          "goodsPlatDiscountFee": 0,
+          "sellCount": 1,
+          "isFit": 0,
+          "taxFee": 0,
+          "goodsName": "青蛙洁先锋系列199B牙刷C7版-4支装",
+          "tradeId": "2518419807831852032"
+        }
+      ],
+      "tradeId": "2518419807831852032"
+    }
+  ]
+}

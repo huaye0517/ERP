@@ -53,8 +53,10 @@ class SaleOrder(generic.BO):
              update_fields=None):
         super(SaleOrder,self).save(force_insert,force_update,using,update_fields)
         if self.discount_amount > 0:
-            sql = 'UPDATE sale_saleitem a SET a.discount_price = a.sale_price - ' \
-                  '((SELECT discount_amount/amount FROM sale_saleorder WHERE id = %s) * (a.sale_price*a.cnt)/a.cnt) WHERE a.master_id = %s'
+            # 注：原写法使用了 MySQL 专属的表别名 UPDATE 语法（SQLite 不支持），
+            # 去掉别名后逻辑不变，同时兼容 MySQL 与 SQLite
+            sql = 'UPDATE sale_saleitem SET discount_price = sale_price - ' \
+                  '((SELECT discount_amount/amount FROM sale_saleorder WHERE id = %s) * (sale_price*cnt)/cnt) WHERE master_id = %s'
             params = [self.id,self.id]
             generic.update(sql,params)
 
@@ -165,8 +167,10 @@ class OfferSheet(generic.BO):
         import decimal
         super(OfferSheet,self).save(force_insert,force_update,using,update_fields)
         if self.discount_amount > 0:
-            sql = 'UPDATE sale_offeritem a SET a.discount_price = a.sale_price - ' \
-                  '((SELECT discount_amount/amount FROM sale_offersheet WHERE id = %s) * (a.sale_price*a.cnt)/a.cnt) WHERE a.master_id = %s'
+            # 注：原写法使用了 MySQL 专属的表别名 UPDATE 语法（SQLite 不支持），
+            # 去掉别名后逻辑不变，同时兼容 MySQL 与 SQLite
+            sql = 'UPDATE sale_offeritem SET discount_price = sale_price - ' \
+                  '((SELECT discount_amount/amount FROM sale_offersheet WHERE id = %s) * (sale_price*cnt)/cnt) WHERE master_id = %s'
             params = [self.id,self.id]
             # print sql % (self.id,self.id)
             generic.update(sql,params)

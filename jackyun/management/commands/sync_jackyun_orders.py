@@ -24,6 +24,10 @@ class Command(BaseCommand):
         parser.add_argument('--end', type=str, default='', help='结束时间 YYYY-MM-DD HH:MM:SS')
         parser.add_argument('--page-size', type=int, default=50, help='每页条数，最大200')
         parser.add_argument('--dry-run', action='store_true', help='只拉取不写入')
+        parser.add_argument(
+            '--time-field', type=str, default='trade', choices=['trade', 'modified', 'created'],
+            help='按哪个时间字段过滤：trade=下单时间(默认)，modified=修改时间，created=创建时间',
+        )
 
     def handle(self, *args, **options):
         end = datetime.now()
@@ -46,6 +50,7 @@ class Command(BaseCommand):
                 end=end,
                 page_size=options['page_size'],
                 dry_run=options['dry_run'],
+                time_field=options['time_field'],
             )
         except JackyunAPIError as exc:
             raise CommandError('吉客云接口错误: %s' % exc) from exc

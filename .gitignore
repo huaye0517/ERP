@@ -30,3 +30,4 @@ Thumbs.db
 # 临时文件
 _tmp_*.json
 *.bak
+db_backup_sqlite.json

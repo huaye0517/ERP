@@ -50,8 +50,10 @@ class PurchaseOrder(generic.BO):
              update_fields=None):
         super(PurchaseOrder,self).save(force_insert,force_update,using,update_fields)
         if self.discount_amount > 0:
-            sql = 'UPDATE purchase_poitem a SET a.discount_price = ' \
-                  'a.price-((SELECT discount_amount/amount FROM purchase_purchaseorder WHERE id=%s)*a.amount/a.cnt) WHERE a.po_id = %s'
+            # 注：原写法使用了 MySQL 专属的表别名 UPDATE 语法（SQLite 不支持），
+            # 去掉别名后逻辑不变，同时兼容 MySQL 与 SQLite
+            sql = 'UPDATE purchase_poitem SET discount_price = ' \
+                  'price-((SELECT discount_amount/amount FROM purchase_purchaseorder WHERE id=%s)*amount/cnt) WHERE po_id = %s'
             params = [self.id,self.id]
             generic.update(sql,params)
 

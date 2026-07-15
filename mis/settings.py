@@ -95,6 +95,9 @@ WSGI_APPLICATION = 'mis.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+# 默认使用 SQLite（便于无数据库直接跑起来）；
+# 若存在 mis/local_settings.py（不提交到仓库），其中的 DATABASES 会覆盖此处配置，
+# 用于本机切换到 MySQL / PostgreSQL 等正式数据库。
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -135,3 +138,9 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'upload')
 MEDIA_URL = '/upload/'
+
+# 本机私有配置覆盖（数据库等敏感信息，不提交到仓库）
+try:
+    from mis.local_settings import *  # noqa: F401,F403
+except ImportError:
+    pass

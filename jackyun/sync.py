@@ -252,9 +252,18 @@ def upsert_sale_order(trade):
     return 'created', order
 
 
-def sync_sale_orders(start=None, end=None, page_size=50, client=None, dry_run=False):
+#  time_field 对应吉客云查询参数的起止字段名
+TIME_FIELD_PARAMS = {
+    'trade': ('startTradeTime', 'endTradeTime'),      # 下单时间（默认，最常用）
+    'modified': ('startModified', 'endModified'),      # 修改时间
+    'created': ('startCreated', 'endCreated'),          # 创建时间
+}
+
+
+def sync_sale_orders(start=None, end=None, page_size=50, client=None, dry_run=False, time_field='trade'):
     """
-    按修改时间窗口拉取吉客云销售单并写入本地。
+    拉取吉客云销售单并写入本地。
+    time_field: 'trade'(下单时间，默认) / 'modified'(修改时间) / 'created'(创建时间)
     时间跨度不能超过 7 天（平台限制）。
     """
     now = datetime.now()
@@ -267,13 +276,14 @@ def sync_sale_orders(start=None, end=None, page_size=50, client=None, dry_run=Fa
 
     start_str = start.strftime('%Y-%m-%d %H:%M:%S')
     end_str = end.strftime('%Y-%m-%d %H:%M:%S')
+    start_key, end_key = TIME_FIELD_PARAMS.get(time_field, TIME_FIELD_PARAMS['trade'])
 
     log = JackyunSyncLog.objects.create(
         sync_type='sale_order',
         status='running',
         start_time=start,
         end_time=end,
-        message='开始同步 %s ~ %s' % (start_str, end_str),
+        message='开始同步(%s) %s ~ %s' % (time_field, start_str, end_str),
     )
 
     client = client or JackyunClient()
@@ -285,8 +295,8 @@ def sync_sale_orders(start=None, end=None, page_size=50, client=None, dry_run=Fa
         while True:
             biz = {
                 'pageSize': min(int(page_size), 200),
-                'startModified': start_str,
-                'endModified': end_str,
+                start_key: start_str,
+                end_key: end_str,
                 'fields': TRADE_FIELDS,
                 'scrollId': scroll_id,
                 'hasTotal': 0,
