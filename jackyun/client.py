@@ -125,3 +125,15 @@ class JackyunClient:
     def trade_count_get(self, **biz):
         """销售单总数查询 oms.trade.countget"""
         return self.call('oms.trade.countget', biz)
+
+    def goods_list_get(self, **biz):
+        """货品档案列表 erp.storage.goodslist"""
+        return self.call('erp.storage.goodslist', biz)
+
+    def warehouse_get(self, **biz):
+        """仓库查询 erp.warehouse.get"""
+        return self.call('erp.warehouse.get', biz)
+
+    def stockquantity_get(self, **biz):
+        """库存现存量查询 erp.stockquantity.get"""
+        return self.call('erp.stockquantity.get', biz)

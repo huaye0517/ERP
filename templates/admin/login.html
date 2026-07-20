@@ -3,9 +3,6 @@
 
 {% block extrastyle %}{{ block.super }}
 <style>
-body.admin-tech-theme {
-    background: #0b1120;
-}
 #header, .breadcrumbs, #footer, #container > .messagelist {
     display: none !important;
 }
@@ -29,12 +26,18 @@ body.admin-tech-theme {
 {% block breadcrumbs %}{% endblock %}
 
 {% block content %}
+<button type="button" class="theme-toggle login-theme-toggle" data-theme-toggle aria-pressed="true" title="切换到浅色模式">
+    <span class="theme-toggle-icon" aria-hidden="true"></span>
+    <span data-theme-label>暗色模式</span>
+</button>
+
 <div class="login-page">
-    <canvas id="particle-canvas" class="particle-canvas" aria-hidden="true"></canvas>
-    <div class="login-grid"></div>
+    <div class="login-orbs" aria-hidden="true">
+        <span></span><span></span><span></span>
+    </div>
     <div class="login-card">
         <div class="login-brand">
-            <div class="logo">◆</div>
+            <div class="logo" aria-hidden="true"></div>
             <h1>Django-ERP</h1>
             <p>企业资源计划管理系统</p>
         </div>
@@ -55,13 +58,13 @@ body.admin-tech-theme {
             <form action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
                 <div class="form-row">
                     {{ form.username.errors }}
-                    <label for="id_username" class="required">用户名：</label>
-                    <input type="text" name="username" id="id_username" autofocus required>
+                    <label for="id_username" class="required">用户名</label>
+                    <input type="text" name="username" id="id_username" autofocus required placeholder="请输入用户名">
                 </div>
                 <div class="form-row">
                     {{ form.password.errors }}
-                    <label for="id_password" class="required">密码：</label>
-                    <input type="password" name="password" id="id_password" required>
+                    <label for="id_password" class="required">密码</label>
+                    <input type="password" name="password" id="id_password" required placeholder="请输入密码">
                     <input type="hidden" name="next" value="{{ next }}">
                 </div>
                 {% url 'admin_password_reset' as password_reset_url %}
@@ -71,7 +74,7 @@ body.admin-tech-theme {
                 </div>
                 {% endif %}
                 <div class="submit-row">
-                    <input type="submit" value="登录系统">
+                    <input type="submit" value="登录">
                 </div>
             </form>
         </div>
@@ -81,5 +84,4 @@ body.admin-tech-theme {
         </div>
     </div>
 </div>
-<script src="{% static 'js/login-particles.js' %}"></script>
 {% endblock %}

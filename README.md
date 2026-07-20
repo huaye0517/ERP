@@ -13,7 +13,7 @@
 - 销售管理、采购管理、库存管理、组织与基础数据
 - 工作流审批
 - 采购单、报价单等批量导入
-- **吉客云开放平台**：拉取销售单写入本地（`oms.trade.fullinfoget` / `oms.trade.countget`）
+- **吉客云开放平台**：单向拉取销售单、仓库、货品、库存到本地 ERP
 
 ---
 
@@ -103,15 +103,19 @@ DATABASES = {
 
 ---
 
-## 吉客云销售单同步
+## 吉客云数据同步
+
+单向拉取（吉客云 → 本地 ERP），**不写回**吉客云。
 
 ### 前置条件
 
 1. 在 [吉客云开放平台](https://open.jackyun.com/) 创建自研应用，并完成审核  
 2. 联系客户经理开通「开放平台」调用权限（仅「已审核」不够）  
 3. 订阅接口：
-   - `oms.trade.fullinfoget`（销售单查询）
-   - `oms.trade.countget`（销售单总数查询）
+   - `oms.trade.fullinfoget` / `oms.trade.countget`（销售单）
+   - `erp.warehouse.get`（仓库）
+   - `erp.storage.goodslist`（货品档案）
+   - `erp.stockquantity.get`（库存现存量）
 
 ### 配置
 
@@ -131,21 +135,38 @@ export JACKYUN_APP_SECRET="你的AppSecret"
 
 相关配置项见 `mis/settings.py` 中的 `JACKYUN_*`。
 
+### 推荐同步顺序
+
+库存依赖本地已有仓库与货品，请按顺序执行：
+
+1. 仓库 → 2. 货品 → 3. 库存（销售单可单独同步）
+
 ### 同步方式
 
-**后台：** 吉客云同步 → 吉客云同步日志 →「立即同步最近7天销售单」
+**后台：** 吉客云同步 → 吉客云同步日志 → 页面上的同步按钮
 
 **命令行：**
 
 ```bash
+# 销售单（时间跨度不超过 7 天）
 python manage.py sync_jackyun_orders --days 7
+
+# 仓库 / 货品 / 库存
+python manage.py sync_jackyun_warehouses
+python manage.py sync_jackyun_goods
+python manage.py sync_jackyun_inventory
+
+# 只拉取不写入
+python manage.py sync_jackyun_goods --dry-run
 ```
 
 说明：
 
-- 平台限制单次查询时间跨度不超过 **7 天**
-- 以吉客云 `tradeNo` 作为本地销售单 `code`，重复同步会跳过
-- 缺失的客户、物料会按需自动创建
+- 销售单：平台限制单次查询时间跨度不超过 **7 天**；以 `tradeNo` 作为本地销售单 `code`，重复同步会跳过
+- 仓库：按 `warehouseCode` 匹配本地 `Warehouse.code`
+- 货品：按 `goodsNo` 匹配本地 `Material.code`；数据量大时使用 `maxSkuId` 游标分页（`pageIndex` 固定为 0）
+- 库存：按「仓库+货品」匹配 `Inventory`；本地缺少对应仓库/货品时会跳过并记入失败明细（请先同步仓库与货品）
+- 测试期应用可能有每日调用次数上限（如 300 次）；正式环境一般更高，可联系客户经理确认
 
 ---
 
@@ -163,6 +184,9 @@ python manage.py changepassword admin
 
 # 吉客云同步
 python manage.py sync_jackyun_orders --days 3
+python manage.py sync_jackyun_warehouses
+python manage.py sync_jackyun_goods
+python manage.py sync_jackyun_inventory
 ```
 
 ---

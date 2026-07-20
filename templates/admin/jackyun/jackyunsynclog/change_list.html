@@ -2,7 +2,9 @@
 {% load i18n %}
 
 {% block object-tools-items %}
-  {% if sync_button %}
+  {% if sync_buttons %}
+  <li>{{ sync_buttons }}</li>
+  {% elif sync_button %}
   <li>{{ sync_button }}</li>
   {% endif %}
   {{ block.super }}

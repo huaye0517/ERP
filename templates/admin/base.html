@@ -1,18 +1,21 @@
 {% load i18n static %}<!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
-<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<html lang="{{ LANGUAGE_CODE|default:"zh-hans" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %} data-theme="dark">
 <head>
 <title>{% block title %}{% endblock %}</title>
+<script>
+(/* 尽早应用主题，避免闪白/闪黑 */)(function(){try{var t=localStorage.getItem('erp-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
+</script>
 <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}" />
 <link rel="stylesheet" type="text/css" href="{% static "css/admin-tech.css" %}" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 {% block extrastyle %}{% endblock %}
-<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% static "admin/css/ie.css" %}{% endblock %}" /><![endif]-->
 {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
 <script type="text/javascript">window.__admin_utc_offset__ = "{% filter escapejs %}{% now "Z" %}{% endfilter %}";</script>
+<script src="{% static 'js/theme-toggle.js' %}"></script>
 {% block extrahead %}{% endblock %}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
 </head>
@@ -32,6 +35,10 @@
         {% block usertools %}
         {% if has_permission %}
         <div id="user-tools">
+            <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="true" title="切换到浅色模式">
+                <span class="theme-toggle-icon" aria-hidden="true"></span>
+                <span data-theme-label>暗色模式</span>
+            </button>
             {% block welcome-msg %}
                 欢迎，
                 <strong>{% firstof user.get_short_name user.get_username %}</strong>
